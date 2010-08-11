@@ -1,5 +1,6 @@
 package com.grupow.modularExample.modules.portafolio 
 {
+	import com.grupow.display.IView;
 	import com.grupow.modularExample.common.IModule;
 	import com.grupow.events.ViewEvent;
 	import org.robotlegs.utilities.modular.base.ModuleEventDispatcher;
@@ -8,7 +9,7 @@ package com.grupow.modularExample.modules.portafolio
 	/**
 	 * @author Raul Uranga
 	 */
-	public class PortafolioModule extends ModuleContextView implements IModule
+	public class PortafolioModule extends ModuleContextView implements IView, IModule
 	{
 		private var _portafolioModuleContext:PortafolioModuleContext;
 

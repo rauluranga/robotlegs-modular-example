@@ -1,5 +1,6 @@
 package com.grupow.modularExample.modules.about 
 {
+	import com.grupow.display.IView;
 	import com.grupow.modularExample.common.IModule;
 	import com.grupow.events.ViewEvent;
 	import org.robotlegs.utilities.modular.base.ModuleEventDispatcher;
@@ -8,7 +9,7 @@ package com.grupow.modularExample.modules.about
 	/**
 	 * @author Raul Uranga
 	 */
-	public class AboutModule extends ModuleContextView implements IModule
+	public class AboutModule extends ModuleContextView implements IView, IModule
 	{
 		private var _aboutModuleContext:AboutModuleContext;
 
