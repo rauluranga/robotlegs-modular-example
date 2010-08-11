@@ -1,5 +1,6 @@
 package com.grupow.modularExample.modules.about.mediators 
 {
+	import com.grupow.modularExample.modules.about.events.AboutEvent;
 	import com.grupow.modularExample.modules.about.views.AboutView;
 	import com.grupow.events.ViewEvent;
 	import org.robotlegs.mvcs.Mediator;
@@ -18,6 +19,9 @@ package com.grupow.modularExample.modules.about.mediators
 		override public function onRegister():void 
 		{
 			eventMap.mapListener(eventDispatcher, ViewEvent.OPEN, openView_handler);			eventMap.mapListener(eventDispatcher, ViewEvent.CLOSE, closeView_handler);
+			
+			eventMap.mapListener(view, AboutEvent.CONTACT_REQUEST, eventDispatcher.dispatchEvent);
+			eventMap.mapListener(view, AboutEvent.PORTAFOLIO_REQUEST, eventDispatcher.dispatchEvent);
 			
 			eventMap.mapListener(view, ViewEvent.OPENED, eventDispatcher.dispatchEvent);
 			eventMap.mapListener(view, ViewEvent.CLOSED, eventDispatcher.dispatchEvent);

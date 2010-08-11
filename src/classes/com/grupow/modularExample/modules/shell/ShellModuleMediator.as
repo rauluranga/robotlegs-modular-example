@@ -19,9 +19,9 @@ package com.grupow.modularExample.modules.shell
 
 		override public function onRegister():void 
 		{
-			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_CODEENTRY_REQUEST, redispatchInternally);
-			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_VENUE_REQUEST, redispatchInternally);
-			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_QUESTION_REQUEST, redispatchInternally);
+			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_ABOUT_REQUEST, redispatchInternally);
+			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_PORTAFOLIO_REQUEST, redispatchInternally);
+			eventMap.mapListener(moduleDispatcher,ShellEvent.SHOW_CONTACT_REQUEST, redispatchInternally);
 		}
 	}
 }

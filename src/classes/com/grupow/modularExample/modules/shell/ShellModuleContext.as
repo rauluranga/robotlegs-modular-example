@@ -32,16 +32,16 @@ package com.grupow.modularExample.modules.shell
 			commandMap.mapEvent(ShellEvent.STARTUP, StartUpCommand, ShellEvent);
 			commandMap.mapEvent(ShellEvent.STARTUP_COMPLETE, StartLoaderCommand, ShellEvent, true);			commandMap.mapEvent(ShellEvent.LOAD_COMPLETE, SetUpModulesCommand, ShellEvent, true);			commandMap.mapEvent(ShellEvent.SETUP_COMPLETE, SetUpModulesCompleteCommand, ShellEvent, true);
 			
-			commandMap.mapEvent(ShellEvent.SHOW_CODEENTRY_REQUEST, OpenAboutCommand, ShellEvent);
-			commandMap.mapEvent(ShellEvent.SHOW_VENUE_REQUEST, OpenContactCommand, ShellEvent);
-			commandMap.mapEvent(ShellEvent.SHOW_QUESTION_REQUEST, OpenPortafolioCommand, ShellEvent);
+			commandMap.mapEvent(ShellEvent.SHOW_ABOUT_REQUEST, OpenAboutCommand, ShellEvent);
+			commandMap.mapEvent(ShellEvent.SHOW_PORTAFOLIO_REQUEST, OpenPortafolioCommand, ShellEvent);
+			commandMap.mapEvent(ShellEvent.SHOW_CONTACT_REQUEST, OpenContactCommand, ShellEvent);
 			
 			////
-			
+
 			mediatorMap.mapView(LoaderView, LoaderViewMediator);
 			mediatorMap.mapView(ShellModule, ShellModuleMediator);
 			
-//			
+			//			
 			injector.mapSingleton(ShellViewManager);
 			injector.mapSingletonOf(IBulkLoader, BulkModuleLoader);
 			

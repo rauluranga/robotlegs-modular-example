@@ -21,7 +21,10 @@ package com.grupow.modularExample.modules.contact
 			mediatorMap.mapView(ContactView, ContactViewMediator);
 			mediatorMap.mapView(ContactModule, ContactModuleMediator);
 			
-			contextView.addChild(new ContactView());
+			var view:ContactView = new ContactView();
+			view.x = 50;			view.x = 198;
+			
+			contextView.addChild(view);
 			
 			super.startup();
 		}
