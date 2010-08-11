@@ -10,8 +10,6 @@ package com.grupow.modularExample.modules.contact.events
 		public static const ABOUT_REQUEST:String = "ABOUT_REQUEST";
 		public static const PORTAFOLIO_REQUEST:String = "PORTAFOLIO_REQUEST";
 
-		public var stage_id:int;
-
 		public function ContactEvent(type:String)
 		{
 			super(type);
@@ -20,7 +18,6 @@ package com.grupow.modularExample.modules.contact.events
 		override public function clone():Event
 		{
 			var event:ContactEvent = new ContactEvent(type);
-			event.stage_id = stage_id;
 			return event;
 		}
 	}

@@ -1,5 +1,7 @@
 package com.grupow.modularExample.modules.portafolio 
 {
+	import com.grupow.modularExample.modules.portafolio.commands.PortafolioViewRequestCommand;
+	import com.grupow.modularExample.modules.portafolio.events.PortafolioEvent;
 	import com.grupow.modularExample.modules.portafolio.mediators.*;
 	import com.grupow.modularExample.modules.portafolio.views.*;
 
@@ -19,10 +21,17 @@ package com.grupow.modularExample.modules.portafolio
 		
 		override public function startup():void 
 		{
+			commandMap.mapEvent(PortafolioEvent.CONTACT_REQUEST, PortafolioViewRequestCommand, PortafolioEvent);
+			commandMap.mapEvent(PortafolioEvent.ABOUT_REQUEST, PortafolioViewRequestCommand, PortafolioEvent);
+			
 			mediatorMap.mapView(PortafolioView, PortafolioViewMediator);
 			mediatorMap.mapView(PortafolioModule, PortafolioModuleMediator);
 			
-			contextView.addChild(new PortafolioView());
+			var view:PortafolioView = new PortafolioView();
+			view.x = 50;
+			view.y = 198;
+			
+			contextView.addChild(view);
 			
 			super.startup();
 		}
