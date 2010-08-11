@@ -1,5 +1,7 @@
 package com.grupow.modularExample.modules.shell.commands 
 {
+	import com.grupow.modularExample.common.IModule;
+	import com.grupow.modularExample.common.TopLevelContext;
 	import com.grupow.modularExample.modules.shell.models.ShellViewManager;
 	import com.grupow.modularExample.modules.shell.events.ShellEvent;
 
@@ -25,6 +27,9 @@ package com.grupow.modularExample.modules.shell.commands
 		[Inject]
 		public var moduleEventDispatcher:IModuleEventDispatcher;
 		
+		[Inject]
+		public var topLevel:TopLevelContext;
+		
 		public function SetUpModulesCommand()
 		{
 			
@@ -33,6 +38,9 @@ package com.grupow.modularExample.modules.shell.commands
 		override public function execute():void 
 		{
 			for each (var data:* in event.modules) {
+				
+				var iModule:IModule = data.content as IModule;
+				iModule.setTopLevelContext(topLevel);
 				
 				var module:IModuleContextView = data.content as IModuleContextView;
 				module.setModuleDispatcher(moduleEventDispatcher);

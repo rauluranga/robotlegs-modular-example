@@ -8,7 +8,8 @@ package com.grupow.modularExample.modules.about.events
 	public class AboutEvent extends Event 
 	{
 		public static const CONTACT_REQUEST:String = "CONTACT_REQUEST";
-		public static const PORTAFOLIO_REQUEST:String = "PORTAFOLIO_REQUEST";				
+		public static const PORTAFOLIO_REQUEST:String = "PORTAFOLIO_REQUEST";		public static const STARTUP:String = "STARTUP";
+
 		public function AboutEvent(type:String)
 		{
 			super(type);

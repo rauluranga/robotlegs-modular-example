@@ -1,5 +1,6 @@
 package com.grupow.modularExample.modules.shell 
 {
+	import com.grupow.modularExample.common.TopLevelContext;
 	import com.grupow.modularExample.modules.shell.commands.*;
 	import com.grupow.modularExample.modules.shell.models.*;
 	import com.grupow.modularExample.modules.shell.services.*;
@@ -56,5 +57,10 @@ package com.grupow.modularExample.modules.shell
 			module.startup();
 			contextView.addChild(module);
 		} 
+
+		public function setTopLevelContext(value:TopLevelContext):void 
+		{
+			injector.mapValue(TopLevelContext, value);
+		}
 	}
 }

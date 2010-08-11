@@ -5,6 +5,6 @@ package com.grupow.modularExample.common
 	 */
 	public interface IModule
 	{
-		
+		function setTopLevelContext(value:TopLevelContext):void;
 	}
 }

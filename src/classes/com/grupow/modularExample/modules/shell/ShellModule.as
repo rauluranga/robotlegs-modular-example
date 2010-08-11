@@ -1,11 +1,13 @@
 package com.grupow.modularExample.modules.shell 
 {
+	import com.grupow.modularExample.common.TopLevelContext;
+	import com.grupow.modularExample.common.IModule;
 	import org.robotlegs.utilities.modular.mvcs.ModuleContextView;
 
 	/**
 	 * @author Raul Uranga
 	 */
-	public class ShellModule extends ModuleContextView
+	public class ShellModule extends ModuleContextView implements IModule
 	{
 		private var _shellModuleContext:ShellModuleContext;
 
@@ -25,7 +27,11 @@ package com.grupow.modularExample.modules.shell
 
 		private function init():void 
 		{
-			
+		}
+		
+		public function setTopLevelContext(value:TopLevelContext):void
+		{
+			_shellModuleContext.setTopLevelContext(value);
 		}
 	}
 }

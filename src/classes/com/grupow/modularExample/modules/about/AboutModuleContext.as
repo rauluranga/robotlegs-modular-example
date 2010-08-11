@@ -1,7 +1,8 @@
 package com.grupow.modularExample.modules.about 
 {
-	import com.grupow.modularExample.modules.about.commands.AboutViewRequestCommand;
-	import com.grupow.modularExample.modules.about.events.AboutEvent;
+	import com.grupow.modularExample.common.TopLevelContext;
+	import com.grupow.modularExample.modules.about.commands.*;
+	import com.grupow.modularExample.modules.about.events.*;
 	import com.grupow.modularExample.modules.about.mediators.*;
 	import com.grupow.modularExample.modules.about.views.*;
 
@@ -21,7 +22,8 @@ package com.grupow.modularExample.modules.about
 		
 		override public function startup():void 
 		{
-			commandMap.mapEvent(AboutEvent.CONTACT_REQUEST, AboutViewRequestCommand, AboutEvent);			commandMap.mapEvent(AboutEvent.PORTAFOLIO_REQUEST, AboutViewRequestCommand, AboutEvent);
+			commandMap.mapEvent(AboutEvent.STARTUP, AboutStartupCommand, AboutEvent);
+						commandMap.mapEvent(AboutEvent.CONTACT_REQUEST, AboutViewRequestCommand, AboutEvent);			commandMap.mapEvent(AboutEvent.PORTAFOLIO_REQUEST, AboutViewRequestCommand, AboutEvent);
 			
 			mediatorMap.mapView(AboutView, AboutViewMediator);
 			mediatorMap.mapView(AboutModule, AboutModuleMediator);
@@ -33,6 +35,13 @@ package com.grupow.modularExample.modules.about
 			contextView.addChild(view);
 			
 			super.startup();
+			
+			dispatchEvent(new AboutEvent(AboutEvent.STARTUP));
+		}
+
+		public function setTopLevelContext(value:TopLevelContext):void 
+		{
+			injector.mapValue(TopLevelContext, value);
 		}
 	}
 }

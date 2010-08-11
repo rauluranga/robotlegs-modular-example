@@ -9,6 +9,7 @@ package com.grupow.modularExample.modules.contact.events
 	{
 		public static const ABOUT_REQUEST:String = "ABOUT_REQUEST";
 		public static const PORTAFOLIO_REQUEST:String = "PORTAFOLIO_REQUEST";
+		public static const STARTUP:String = "STARTUP";
 
 		public function ContactEvent(type:String)
 		{

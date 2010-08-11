@@ -1,5 +1,6 @@
 package com.grupow.modularExample.modules.about 
 {
+	import com.grupow.modularExample.common.TopLevelContext;
 	import com.grupow.display.IView;
 	import com.grupow.modularExample.common.IModule;
 	import com.grupow.events.ViewEvent;
@@ -21,8 +22,14 @@ package com.grupow.modularExample.modules.about
 			context = _aboutModuleContext;
 			
 			/*/
-			context.setModuleDispatcher(new ModuleEventDispatcher());
-            context.startup();
+			var topLevelContext:TopLevelContext = new TopLevelContext();
+			topLevelContext.root = this.root;
+			topLevelContext.stage = this.stage;
+			
+			_aboutModuleContext.setTopLevelContext(topLevelContext);
+			 
+			setModuleDispatcher(new ModuleEventDispatcher());
+            startup();
             open();
 			//*/
 		}
@@ -35,6 +42,11 @@ package com.grupow.modularExample.modules.about
 		public function close():void
 		{
 			context.dispatchEvent(new ViewEvent(ViewEvent.CLOSE));
+		}
+		
+		public function setTopLevelContext(value:TopLevelContext):void
+		{
+			_aboutModuleContext.setTopLevelContext(value);
 		}
 	}
 }

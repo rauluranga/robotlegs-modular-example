@@ -1,5 +1,7 @@
 package com.grupow.modularExample.modules.portafolio 
 {
+	import com.grupow.modularExample.modules.portafolio.commands.PortafolioStartupCommand;
+	import com.grupow.modularExample.common.TopLevelContext;
 	import com.grupow.modularExample.modules.portafolio.commands.PortafolioViewRequestCommand;
 	import com.grupow.modularExample.modules.portafolio.events.PortafolioEvent;
 	import com.grupow.modularExample.modules.portafolio.mediators.*;
@@ -21,6 +23,8 @@ package com.grupow.modularExample.modules.portafolio
 		
 		override public function startup():void 
 		{
+			commandMap.mapEvent(PortafolioEvent.STARTUP, PortafolioStartupCommand, PortafolioEvent);
+			
 			commandMap.mapEvent(PortafolioEvent.CONTACT_REQUEST, PortafolioViewRequestCommand, PortafolioEvent);
 			commandMap.mapEvent(PortafolioEvent.ABOUT_REQUEST, PortafolioViewRequestCommand, PortafolioEvent);
 			
@@ -34,6 +38,13 @@ package com.grupow.modularExample.modules.portafolio
 			contextView.addChild(view);
 			
 			super.startup();
+			
+			dispatchEvent(new PortafolioEvent(PortafolioEvent.STARTUP));
+		}
+
+		public function setTopLevelContext(value:TopLevelContext):void 
+		{
+			injector.mapValue(TopLevelContext, value);
 		}
 	}
 }
