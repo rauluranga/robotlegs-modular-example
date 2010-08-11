@@ -1,5 +1,7 @@
 package com.grupow.modularExample.modules.contact 
 {
+	import com.grupow.modularExample.modules.contact.commands.ContactViewRequestCommand;
+	import com.grupow.modularExample.modules.contact.events.ContactEvent;
 	import com.grupow.modularExample.modules.contact.mediators.*;
 	import com.grupow.modularExample.modules.contact.views.*;
 	import org.robotlegs.utilities.modular.mvcs.ModuleContext;
@@ -18,11 +20,14 @@ package com.grupow.modularExample.modules.contact
 		
 		override public function startup():void 
 		{
+			commandMap.mapEvent(ContactEvent.ABOUT_REQUEST, ContactViewRequestCommand, ContactEvent);
+			commandMap.mapEvent(ContactEvent.PORTAFOLIO_REQUEST, ContactViewRequestCommand, ContactEvent);
+			
 			mediatorMap.mapView(ContactView, ContactViewMediator);
 			mediatorMap.mapView(ContactModule, ContactModuleMediator);
 			
 			var view:ContactView = new ContactView();
-			view.x = 50;			view.x = 198;
+			view.x = 50;			view.y = 198;
 			
 			contextView.addChild(view);
 			

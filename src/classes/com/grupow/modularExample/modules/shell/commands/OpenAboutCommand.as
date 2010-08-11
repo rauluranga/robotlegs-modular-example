@@ -20,7 +20,7 @@ package com.grupow.modularExample.modules.shell.commands
 
 		override public function execute():void 
 		{
-			model.openView(Views.PORTAFOLIO);
+			model.openView(Views.ABOUT);
 		}
 	}
 }

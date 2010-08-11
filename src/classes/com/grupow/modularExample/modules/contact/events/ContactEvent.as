@@ -7,8 +7,8 @@ package com.grupow.modularExample.modules.contact.events
 	 */
 	public class ContactEvent extends Event 
 	{
-		public static const STAGE_SELECTED:String = "VenueSelectorEvent_venueSelected";
-		public static const HELP_REQUEST:String = "VenueSelectorEvent_HELP_REQUEST";
+		public static const ABOUT_REQUEST:String = "ABOUT_REQUEST";
+		public static const PORTAFOLIO_REQUEST:String = "PORTAFOLIO_REQUEST";
 
 		public var stage_id:int;
 
